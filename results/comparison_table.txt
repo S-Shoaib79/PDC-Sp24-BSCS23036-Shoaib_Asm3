@@ -1,0 +1,9 @@
+Leader-Election Comparison  (N=10, failed leader = N10, 50 ms WAN delay per send)
+---------------------------------------------------------------
+Algorithm  Scenario   Initiator    Messages   Hops    Time (ms)
+---------------------------------------------------------------
+Bully      best       N9                 10      2      2083.54
+Bully      worst      N1                 90      3      2641.23
+Ring       best       N9                 18     18      1060.01
+Ring       worst      N1                 18     18      1071.22
+---------------------------------------------------------------

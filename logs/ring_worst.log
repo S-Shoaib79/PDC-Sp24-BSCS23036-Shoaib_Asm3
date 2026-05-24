@@ -1,0 +1,62 @@
+=== Ring | worst-case | initiator=N1 ===
+messages = 18
+max_hop  = 18
+elapsed  = 1071.22 ms
+------------------------------------------------------------------------------
+[     0.00 ms]        EVENT               N10 :: (node is DOWN -- not participating)
+[     3.79 ms] hop=0  RECV   TRIGGER      N1  <- N0 
+[     3.83 ms]        EVENT               N1  :: detects leader failure, starts Ring election -> next=N2
+[    63.60 ms] hop=1  SEND   ELECTION     N1  -> N2  payload=[1]
+[    63.71 ms] hop=1  RECV   ELECTION     N2  <- N1  payload=[1]
+[    63.75 ms]        EVENT               N2  :: forwards ELECTION [1, 2] -> N3
+[   127.52 ms] hop=2  SEND   ELECTION     N2  -> N3  payload=[1, 2]
+[   127.69 ms] hop=2  RECV   ELECTION     N3  <- N2  payload=[1, 2]
+[   127.73 ms]        EVENT               N3  :: forwards ELECTION [1, 2, 3] -> N4
+[   184.88 ms] hop=3  SEND   ELECTION     N3  -> N4  payload=[1, 2, 3]
+[   185.36 ms] hop=3  RECV   ELECTION     N4  <- N3  payload=[1, 2, 3]
+[   185.40 ms]        EVENT               N4  :: forwards ELECTION [1, 2, 3, 4] -> N5
+[   239.62 ms] hop=4  SEND   ELECTION     N4  -> N5  payload=[1, 2, 3, 4]
+[   239.80 ms] hop=4  RECV   ELECTION     N5  <- N4  payload=[1, 2, 3, 4]
+[   239.83 ms]        EVENT               N5  :: forwards ELECTION [1, 2, 3, 4, 5] -> N6
+[   301.04 ms] hop=5  SEND   ELECTION     N5  -> N6  payload=[1, 2, 3, 4, 5]
+[   301.36 ms] hop=5  RECV   ELECTION     N6  <- N5  payload=[1, 2, 3, 4, 5]
+[   301.40 ms]        EVENT               N6  :: forwards ELECTION [1, 2, 3, 4, 5, 6] -> N7
+[   354.55 ms] hop=6  SEND   ELECTION     N6  -> N7  payload=[1, 2, 3, 4, 5, 6]
+[   355.02 ms] hop=6  RECV   ELECTION     N7  <- N6  payload=[1, 2, 3, 4, 5, 6]
+[   355.07 ms]        EVENT               N7  :: forwards ELECTION [1, 2, 3, 4, 5, 6, 7] -> N8
+[   413.14 ms] hop=7  SEND   ELECTION     N7  -> N8  payload=[1, 2, 3, 4, 5, 6, 7]
+[   413.35 ms] hop=7  RECV   ELECTION     N8  <- N7  payload=[1, 2, 3, 4, 5, 6, 7]
+[   413.40 ms]        EVENT               N8  :: forwards ELECTION [1, 2, 3, 4, 5, 6, 7, 8] -> N9
+[   468.08 ms] hop=8  SEND   ELECTION     N8  -> N9  payload=[1, 2, 3, 4, 5, 6, 7, 8]
+[   468.24 ms] hop=8  RECV   ELECTION     N9  <- N8  payload=[1, 2, 3, 4, 5, 6, 7, 8]
+[   468.29 ms]        EVENT               N9  :: forwards ELECTION [1, 2, 3, 4, 5, 6, 7, 8, 9] -> N1
+[   521.02 ms] hop=9  SEND   ELECTION     N9  -> N1  payload=[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[   521.20 ms] hop=9  RECV   ELECTION     N1  <- N9  payload=[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[   521.25 ms]        EVENT               N1  :: ELECTION returned full circle ids=[1, 2, 3, 4, 5, 6, 7, 8, 9]; new leader = N9
+[   579.68 ms] hop=10 SEND   COORDINATOR  N1  -> N2  payload=9
+[   579.94 ms] hop=10 RECV   COORDINATOR  N2  <- N1  payload=9
+[   579.97 ms]        EVENT               N2  :: acknowledges leader = N9, forwarding
+[   637.38 ms] hop=11 SEND   COORDINATOR  N2  -> N3  payload=9
+[   637.60 ms] hop=11 RECV   COORDINATOR  N3  <- N2  payload=9
+[   637.64 ms]        EVENT               N3  :: acknowledges leader = N9, forwarding
+[   696.50 ms] hop=12 SEND   COORDINATOR  N3  -> N4  payload=9
+[   696.65 ms] hop=12 RECV   COORDINATOR  N4  <- N3  payload=9
+[   696.69 ms]        EVENT               N4  :: acknowledges leader = N9, forwarding
+[   762.52 ms] hop=13 SEND   COORDINATOR  N4  -> N5  payload=9
+[   762.89 ms] hop=13 RECV   COORDINATOR  N5  <- N4  payload=9
+[   762.92 ms]        EVENT               N5  :: acknowledges leader = N9, forwarding
+[   821.10 ms] hop=14 SEND   COORDINATOR  N5  -> N6  payload=9
+[   821.32 ms] hop=14 RECV   COORDINATOR  N6  <- N5  payload=9
+[   821.35 ms]        EVENT               N6  :: acknowledges leader = N9, forwarding
+[   881.38 ms] hop=15 SEND   COORDINATOR  N6  -> N7  payload=9
+[   881.55 ms] hop=15 RECV   COORDINATOR  N7  <- N6  payload=9
+[   881.59 ms]        EVENT               N7  :: acknowledges leader = N9, forwarding
+[   945.08 ms] hop=16 SEND   COORDINATOR  N7  -> N8  payload=9
+[   945.27 ms] hop=16 RECV   COORDINATOR  N8  <- N7  payload=9
+[   945.31 ms]        EVENT               N8  :: acknowledges leader = N9, forwarding
+[  1008.60 ms] hop=17 SEND   COORDINATOR  N8  -> N9  payload=9
+[  1008.83 ms] hop=17 RECV   COORDINATOR  N9  <- N8  payload=9
+[  1008.86 ms]        EVENT               N9  :: acknowledges leader = N9, forwarding
+[  1071.04 ms] hop=18 SEND   COORDINATOR  N9  -> N1  payload=9
+[  1071.22 ms] hop=18 RECV   COORDINATOR  N1  <- N9  payload=9
+[  1071.25 ms]        EVENT               N1  :: COORDINATOR returned full circle; Ring election complete

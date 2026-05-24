@@ -1,0 +1,36 @@
+=== Bully | best-case | initiator=N9 ===
+messages = 10
+max_hop  = 2
+elapsed  = 2083.54 ms
+------------------------------------------------------------------------------
+[     0.00 ms]        EVENT               N10 :: (node is DOWN -- not participating)
+[     4.06 ms] hop=0  RECV   TRIGGER      N9  <- N0 
+[     4.10 ms]        EVENT               N9  :: detects leader failure, starting Bully election
+[     4.13 ms]        EVENT               N9  :: starts election @hop=1, ELECTION -> [10]
+[    65.85 ms] hop=1  SEND   ELECTION     N9  -> N10
+[  1571.90 ms]        EVENT               N9  :: WINS election; broadcasting COORDINATOR -> [1, 2, 3, 4, 5, 6, 7, 8, 10]
+[  1636.05 ms] hop=2  SEND   COORDINATOR  N9  -> N1  payload=9
+[  1636.21 ms] hop=2  RECV   COORDINATOR  N1  <- N9  payload=9
+[  1636.24 ms]        EVENT               N1  :: acknowledges new leader = N9
+[  1700.31 ms] hop=2  SEND   COORDINATOR  N9  -> N2  payload=9
+[  1700.48 ms] hop=2  RECV   COORDINATOR  N2  <- N9  payload=9
+[  1700.52 ms]        EVENT               N2  :: acknowledges new leader = N9
+[  1766.98 ms] hop=2  SEND   COORDINATOR  N9  -> N3  payload=9
+[  1767.48 ms] hop=2  RECV   COORDINATOR  N3  <- N9  payload=9
+[  1767.51 ms]        EVENT               N3  :: acknowledges new leader = N9
+[  1827.66 ms] hop=2  SEND   COORDINATOR  N9  -> N4  payload=9
+[  1827.88 ms] hop=2  RECV   COORDINATOR  N4  <- N9  payload=9
+[  1827.92 ms]        EVENT               N4  :: acknowledges new leader = N9
+[  1891.53 ms] hop=2  SEND   COORDINATOR  N9  -> N5  payload=9
+[  1891.70 ms] hop=2  RECV   COORDINATOR  N5  <- N9  payload=9
+[  1891.73 ms]        EVENT               N5  :: acknowledges new leader = N9
+[  1955.29 ms] hop=2  SEND   COORDINATOR  N9  -> N6  payload=9
+[  1955.49 ms] hop=2  RECV   COORDINATOR  N6  <- N9  payload=9
+[  1955.53 ms]        EVENT               N6  :: acknowledges new leader = N9
+[  2020.12 ms] hop=2  SEND   COORDINATOR  N9  -> N7  payload=9
+[  2020.29 ms] hop=2  RECV   COORDINATOR  N7  <- N9  payload=9
+[  2020.33 ms]        EVENT               N7  :: acknowledges new leader = N9
+[  2083.38 ms] hop=2  SEND   COORDINATOR  N9  -> N8  payload=9
+[  2083.54 ms] hop=2  RECV   COORDINATOR  N8  <- N9  payload=9
+[  2083.57 ms]        EVENT               N8  :: acknowledges new leader = N9
+[  2147.91 ms] hop=2  SEND   COORDINATOR  N9  -> N10 payload=9

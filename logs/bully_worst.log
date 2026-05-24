@@ -1,0 +1,268 @@
+=== Bully | worst-case | initiator=N1 ===
+messages = 90
+max_hop  = 3
+elapsed  = 2641.23 ms
+------------------------------------------------------------------------------
+[     0.00 ms]        EVENT               N10 :: (node is DOWN -- not participating)
+[     3.99 ms] hop=0  RECV   TRIGGER      N1  <- N0 
+[     4.02 ms]        EVENT               N1  :: detects leader failure, starting Bully election
+[     4.07 ms]        EVENT               N1  :: starts election @hop=1, ELECTION -> [2, 3, 4, 5, 6, 7, 8, 9, 10]
+[    59.69 ms] hop=1  SEND   ELECTION     N1  -> N2 
+[    60.13 ms] hop=1  RECV   ELECTION     N2  <- N1 
+[   123.66 ms] hop=2  SEND   OK           N2  -> N1 
+[   123.74 ms]        EVENT               N2  :: replies OK to N1 (its ID 1 < mine 2)
+[   123.82 ms]        EVENT               N2  :: starts election @hop=2, ELECTION -> [3, 4, 5, 6, 7, 8, 9, 10]
+[   123.99 ms] hop=1  SEND   ELECTION     N1  -> N3 
+[   124.52 ms] hop=1  RECV   ELECTION     N3  <- N1 
+[   186.81 ms] hop=2  SEND   OK           N3  -> N1 
+[   186.89 ms]        EVENT               N3  :: replies OK to N1 (its ID 1 < mine 3)
+[   186.93 ms]        EVENT               N3  :: starts election @hop=2, ELECTION -> [4, 5, 6, 7, 8, 9, 10]
+[   187.36 ms] hop=1  SEND   ELECTION     N1  -> N4 
+[   187.43 ms] hop=2  SEND   ELECTION     N2  -> N3 
+[   187.55 ms] hop=1  RECV   ELECTION     N4  <- N1 
+[   250.38 ms] hop=2  SEND   ELECTION     N2  -> N4 
+[   250.50 ms] hop=2  SEND   OK           N4  -> N1 
+[   250.55 ms]        EVENT               N4  :: replies OK to N1 (its ID 1 < mine 4)
+[   250.59 ms]        EVENT               N4  :: starts election @hop=2, ELECTION -> [5, 6, 7, 8, 9, 10]
+[   250.63 ms] hop=1  SEND   ELECTION     N1  -> N5 
+[   250.93 ms] hop=1  RECV   ELECTION     N5  <- N1 
+[   251.05 ms] hop=2  SEND   ELECTION     N3  -> N4 
+[   313.31 ms] hop=2  SEND   ELECTION     N3  -> N5 
+[   313.44 ms] hop=2  SEND   OK           N5  -> N1 
+[   313.50 ms]        EVENT               N5  :: replies OK to N1 (its ID 1 < mine 5)
+[   313.55 ms]        EVENT               N5  :: starts election @hop=2, ELECTION -> [6, 7, 8, 9, 10]
+[   313.60 ms] hop=1  SEND   ELECTION     N1  -> N6 
+[   313.66 ms] hop=2  SEND   ELECTION     N4  -> N5 
+[   313.73 ms] hop=2  SEND   ELECTION     N2  -> N5 
+[   313.84 ms] hop=1  RECV   ELECTION     N6  <- N1 
+[   376.73 ms] hop=2  SEND   OK           N6  -> N1 
+[   376.82 ms]        EVENT               N6  :: replies OK to N1 (its ID 1 < mine 6)
+[   376.86 ms]        EVENT               N6  :: starts election @hop=2, ELECTION -> [7, 8, 9, 10]
+[   377.14 ms] hop=2  SEND   ELECTION     N2  -> N6 
+[   377.21 ms] hop=2  SEND   ELECTION     N4  -> N6 
+[   377.29 ms] hop=1  SEND   ELECTION     N1  -> N7 
+[   377.35 ms] hop=2  SEND   ELECTION     N5  -> N6 
+[   377.40 ms] hop=2  SEND   ELECTION     N3  -> N6 
+[   377.48 ms] hop=1  RECV   ELECTION     N7  <- N1 
+[   440.31 ms] hop=2  SEND   OK           N7  -> N1 
+[   440.40 ms]        EVENT               N7  :: replies OK to N1 (its ID 1 < mine 7)
+[   440.43 ms]        EVENT               N7  :: starts election @hop=2, ELECTION -> [8, 9, 10]
+[   440.48 ms] hop=2  SEND   ELECTION     N3  -> N7 
+[   440.56 ms] hop=2  SEND   ELECTION     N5  -> N7 
+[   440.63 ms] hop=1  SEND   ELECTION     N1  -> N8 
+[   440.70 ms] hop=2  SEND   ELECTION     N4  -> N7 
+[   440.74 ms] hop=2  SEND   ELECTION     N2  -> N7 
+[   440.78 ms] hop=2  SEND   ELECTION     N6  -> N7 
+[   440.86 ms] hop=1  RECV   ELECTION     N8  <- N1 
+[   504.90 ms] hop=2  SEND   OK           N8  -> N1 
+[   504.99 ms]        EVENT               N8  :: replies OK to N1 (its ID 1 < mine 8)
+[   505.06 ms]        EVENT               N8  :: starts election @hop=2, ELECTION -> [9, 10]
+[   505.22 ms] hop=2  SEND   ELECTION     N6  -> N8 
+[   505.27 ms] hop=2  SEND   ELECTION     N2  -> N8 
+[   505.33 ms] hop=2  SEND   ELECTION     N4  -> N8 
+[   505.38 ms] hop=1  SEND   ELECTION     N1  -> N9 
+[   505.43 ms] hop=2  SEND   ELECTION     N5  -> N8 
+[   505.47 ms] hop=2  SEND   ELECTION     N3  -> N8 
+[   505.52 ms] hop=2  SEND   ELECTION     N7  -> N8 
+[   505.57 ms] hop=1  RECV   ELECTION     N9  <- N1 
+[   569.14 ms] hop=2  SEND   ELECTION     N7  -> N9 
+[   569.26 ms] hop=2  SEND   OK           N9  -> N1 
+[   569.34 ms]        EVENT               N9  :: replies OK to N1 (its ID 1 < mine 9)
+[   569.38 ms]        EVENT               N9  :: starts election @hop=2, ELECTION -> [10]
+[   569.45 ms] hop=2  SEND   ELECTION     N3  -> N9 
+[   569.52 ms] hop=2  SEND   ELECTION     N5  -> N9 
+[   569.57 ms] hop=1  SEND   ELECTION     N1  -> N10
+[   569.87 ms] hop=2  SEND   ELECTION     N4  -> N9 
+[   569.94 ms] hop=2  SEND   ELECTION     N2  -> N9 
+[   570.01 ms] hop=2  SEND   ELECTION     N6  -> N9 
+[   570.07 ms] hop=2  SEND   ELECTION     N8  -> N9 
+[   570.22 ms] hop=2  RECV   OK           N1  <- N2 
+[   570.24 ms]        EVENT               N1  :: received OK from N2; will await COORDINATOR
+[   570.26 ms] hop=2  RECV   OK           N1  <- N3 
+[   570.27 ms]        EVENT               N1  :: received OK from N3; will await COORDINATOR
+[   570.29 ms] hop=2  RECV   OK           N1  <- N4 
+[   570.32 ms]        EVENT               N1  :: received OK from N4; will await COORDINATOR
+[   570.34 ms] hop=2  RECV   OK           N1  <- N5 
+[   570.35 ms]        EVENT               N1  :: received OK from N5; will await COORDINATOR
+[   570.36 ms] hop=2  RECV   OK           N1  <- N6 
+[   570.38 ms]        EVENT               N1  :: received OK from N6; will await COORDINATOR
+[   570.39 ms] hop=2  RECV   OK           N1  <- N7 
+[   570.40 ms]        EVENT               N1  :: received OK from N7; will await COORDINATOR
+[   570.42 ms] hop=2  RECV   OK           N1  <- N8 
+[   570.44 ms]        EVENT               N1  :: received OK from N8; will await COORDINATOR
+[   570.45 ms] hop=2  RECV   OK           N1  <- N9 
+[   570.46 ms]        EVENT               N1  :: received OK from N9; will await COORDINATOR
+[   632.03 ms] hop=2  SEND   ELECTION     N8  -> N10
+[   632.42 ms] hop=2  SEND   ELECTION     N6  -> N10
+[   632.92 ms] hop=2  SEND   ELECTION     N2  -> N10
+[   633.14 ms] hop=2  SEND   ELECTION     N4  -> N10
+[   633.35 ms] hop=2  SEND   ELECTION     N5  -> N10
+[   633.61 ms] hop=2  SEND   ELECTION     N3  -> N10
+[   634.09 ms] hop=2  SEND   ELECTION     N9  -> N10
+[   634.30 ms] hop=2  SEND   ELECTION     N7  -> N10
+[   635.11 ms] hop=2  RECV   ELECTION     N9  <- N7 
+[   635.21 ms] hop=2  RECV   ELECTION     N6  <- N2 
+[   635.43 ms] hop=2  RECV   ELECTION     N4  <- N2 
+[   635.53 ms] hop=2  RECV   ELECTION     N5  <- N3 
+[   635.63 ms] hop=2  RECV   ELECTION     N3  <- N2 
+[   635.73 ms] hop=2  RECV   ELECTION     N8  <- N6 
+[   635.83 ms] hop=2  RECV   ELECTION     N7  <- N3 
+[   694.36 ms] hop=3  SEND   OK           N7  -> N3 
+[   694.45 ms]        EVENT               N7  :: replies OK to N3 (its ID 3 < mine 7)
+[   694.56 ms] hop=2  RECV   ELECTION     N7  <- N5 
+[   694.63 ms] hop=3  SEND   OK           N8  -> N6 
+[   694.68 ms]        EVENT               N8  :: replies OK to N6 (its ID 6 < mine 8)
+[   694.75 ms] hop=2  RECV   ELECTION     N8  <- N2 
+[   694.79 ms] hop=3  SEND   OK           N3  -> N2 
+[   694.82 ms]        EVENT               N3  :: replies OK to N2 (its ID 2 < mine 3)
+[   694.84 ms] hop=3  RECV   OK           N3  <- N7 
+[   694.86 ms]        EVENT               N3  :: received OK from N7; will await COORDINATOR
+[   694.90 ms] hop=3  SEND   OK           N5  -> N3 
+[   694.94 ms]        EVENT               N5  :: replies OK to N3 (its ID 3 < mine 5)
+[   694.97 ms] hop=2  RECV   ELECTION     N5  <- N4 
+[   695.01 ms] hop=3  SEND   OK           N4  -> N2 
+[   695.04 ms]        EVENT               N4  :: replies OK to N2 (its ID 2 < mine 4)
+[   695.06 ms] hop=2  RECV   ELECTION     N4  <- N3 
+[   695.10 ms] hop=3  RECV   OK           N2  <- N3 
+[   695.12 ms]        EVENT               N2  :: received OK from N3; will await COORDINATOR
+[   695.13 ms] hop=3  RECV   OK           N2  <- N4 
+[   695.15 ms]        EVENT               N2  :: received OK from N4; will await COORDINATOR
+[   695.18 ms] hop=3  SEND   OK           N6  -> N2 
+[   695.22 ms]        EVENT               N6  :: replies OK to N2 (its ID 2 < mine 6)
+[   695.25 ms] hop=2  RECV   ELECTION     N6  <- N4 
+[   695.30 ms] hop=3  SEND   OK           N9  -> N7 
+[   695.32 ms]        EVENT               N9  :: replies OK to N7 (its ID 7 < mine 9)
+[   695.34 ms] hop=2  RECV   ELECTION     N9  <- N3 
+[   695.39 ms] hop=3  RECV   OK           N3  <- N5 
+[   695.42 ms]        EVENT               N3  :: received OK from N5; will await COORDINATOR
+[   695.52 ms] hop=3  RECV   OK           N2  <- N6 
+[   695.53 ms]        EVENT               N2  :: received OK from N6; will await COORDINATOR
+[   757.63 ms] hop=3  SEND   OK           N6  -> N4 
+[   757.72 ms]        EVENT               N6  :: replies OK to N4 (its ID 4 < mine 6)
+[   757.76 ms] hop=2  RECV   ELECTION     N6  <- N5 
+[   757.84 ms] hop=3  SEND   OK           N9  -> N3 
+[   757.89 ms]        EVENT               N9  :: replies OK to N3 (its ID 3 < mine 9)
+[   757.92 ms] hop=2  RECV   ELECTION     N9  <- N5 
+[   758.04 ms] hop=3  RECV   OK           N3  <- N9 
+[   758.07 ms]        EVENT               N3  :: received OK from N9; will await COORDINATOR
+[   758.27 ms] hop=3  SEND   OK           N4  -> N3 
+[   758.32 ms]        EVENT               N4  :: replies OK to N3 (its ID 3 < mine 4)
+[   758.35 ms] hop=3  RECV   OK           N4  <- N6 
+[   758.37 ms]        EVENT               N4  :: received OK from N6; will await COORDINATOR
+[   758.41 ms] hop=3  SEND   OK           N5  -> N4 
+[   758.45 ms]        EVENT               N5  :: replies OK to N4 (its ID 4 < mine 5)
+[   758.47 ms] hop=2  RECV   ELECTION     N5  <- N2 
+[   758.51 ms] hop=3  SEND   OK           N8  -> N2 
+[   758.54 ms]        EVENT               N8  :: replies OK to N2 (its ID 2 < mine 8)
+[   758.57 ms] hop=2  RECV   ELECTION     N8  <- N4 
+[   758.61 ms] hop=3  SEND   OK           N7  -> N5 
+[   758.63 ms]        EVENT               N7  :: replies OK to N5 (its ID 5 < mine 7)
+[   758.65 ms] hop=2  RECV   ELECTION     N7  <- N4 
+[   758.70 ms] hop=3  RECV   OK           N3  <- N4 
+[   758.71 ms]        EVENT               N3  :: received OK from N4; will await COORDINATOR
+[   758.81 ms] hop=3  RECV   OK           N4  <- N5 
+[   758.84 ms]        EVENT               N4  :: received OK from N5; will await COORDINATOR
+[   758.94 ms] hop=3  RECV   OK           N2  <- N8 
+[   758.97 ms]        EVENT               N2  :: received OK from N8; will await COORDINATOR
+[   821.06 ms] hop=3  SEND   OK           N7  -> N4 
+[   821.14 ms]        EVENT               N7  :: replies OK to N4 (its ID 4 < mine 7)
+[   821.17 ms] hop=2  RECV   ELECTION     N7  <- N2 
+[   821.22 ms] hop=3  SEND   OK           N5  -> N2 
+[   821.27 ms]        EVENT               N5  :: replies OK to N2 (its ID 2 < mine 5)
+[   821.31 ms] hop=3  RECV   OK           N5  <- N7 
+[   821.32 ms]        EVENT               N5  :: received OK from N7; will await COORDINATOR
+[   821.40 ms] hop=3  SEND   OK           N8  -> N4 
+[   821.45 ms]        EVENT               N8  :: replies OK to N4 (its ID 4 < mine 8)
+[   821.48 ms] hop=2  RECV   ELECTION     N8  <- N5 
+[   821.66 ms] hop=3  SEND   OK           N9  -> N5 
+[   821.70 ms]        EVENT               N9  :: replies OK to N5 (its ID 5 < mine 9)
+[   821.72 ms] hop=2  RECV   ELECTION     N9  <- N4 
+[   821.76 ms] hop=3  SEND   OK           N6  -> N5 
+[   821.81 ms]        EVENT               N6  :: replies OK to N5 (its ID 5 < mine 6)
+[   821.83 ms] hop=2  RECV   ELECTION     N6  <- N3 
+[   821.94 ms] hop=3  RECV   OK           N4  <- N7 
+[   821.97 ms]        EVENT               N4  :: received OK from N7; will await COORDINATOR
+[   821.99 ms] hop=3  RECV   OK           N4  <- N8 
+[   822.06 ms]        EVENT               N4  :: received OK from N8; will await COORDINATOR
+[   822.12 ms] hop=3  RECV   OK           N2  <- N5 
+[   822.13 ms]        EVENT               N2  :: received OK from N5; will await COORDINATOR
+[   822.20 ms] hop=3  RECV   OK           N5  <- N9 
+[   822.23 ms]        EVENT               N5  :: received OK from N9; will await COORDINATOR
+[   822.25 ms] hop=3  RECV   OK           N5  <- N6 
+[   822.27 ms]        EVENT               N5  :: received OK from N6; will await COORDINATOR
+[   883.90 ms] hop=3  SEND   OK           N6  -> N3 
+[   883.98 ms]        EVENT               N6  :: replies OK to N3 (its ID 3 < mine 6)
+[   884.02 ms] hop=3  RECV   OK           N6  <- N8 
+[   884.04 ms]        EVENT               N6  :: received OK from N8; will await COORDINATOR
+[   884.11 ms] hop=3  SEND   OK           N9  -> N4 
+[   884.16 ms]        EVENT               N9  :: replies OK to N4 (its ID 4 < mine 9)
+[   884.20 ms] hop=2  RECV   ELECTION     N9  <- N2 
+[   884.34 ms] hop=3  SEND   OK           N8  -> N5 
+[   884.40 ms]        EVENT               N8  :: replies OK to N5 (its ID 5 < mine 8)
+[   884.43 ms] hop=2  RECV   ELECTION     N8  <- N3 
+[   884.52 ms] hop=3  RECV   OK           N3  <- N6 
+[   884.55 ms]        EVENT               N3  :: received OK from N6; will await COORDINATOR
+[   884.64 ms] hop=3  SEND   OK           N7  -> N2 
+[   884.69 ms]        EVENT               N7  :: replies OK to N2 (its ID 2 < mine 7)
+[   884.73 ms] hop=2  RECV   ELECTION     N7  <- N6 
+[   884.80 ms] hop=3  RECV   OK           N4  <- N9 
+[   884.83 ms]        EVENT               N4  :: received OK from N9; will await COORDINATOR
+[   884.92 ms] hop=3  RECV   OK           N5  <- N8 
+[   884.95 ms]        EVENT               N5  :: received OK from N8; will await COORDINATOR
+[   885.07 ms] hop=3  RECV   OK           N2  <- N7 
+[   885.09 ms]        EVENT               N2  :: received OK from N7; will await COORDINATOR
+[   947.98 ms] hop=3  SEND   OK           N7  -> N6 
+[   948.06 ms]        EVENT               N7  :: replies OK to N6 (its ID 6 < mine 7)
+[   948.11 ms] hop=3  RECV   OK           N7  <- N9 
+[   948.15 ms]        EVENT               N7  :: received OK from N9; will await COORDINATOR
+[   948.49 ms] hop=3  SEND   OK           N8  -> N3 
+[   948.52 ms]        EVENT               N8  :: replies OK to N3 (its ID 3 < mine 8)
+[   948.54 ms] hop=2  RECV   ELECTION     N8  <- N7 
+[   948.89 ms] hop=3  SEND   OK           N9  -> N2 
+[   948.92 ms]        EVENT               N9  :: replies OK to N2 (its ID 2 < mine 9)
+[   948.94 ms] hop=2  RECV   ELECTION     N9  <- N6 
+[   948.99 ms] hop=3  RECV   OK           N6  <- N7 
+[   949.01 ms]        EVENT               N6  :: received OK from N7; will await COORDINATOR
+[   949.06 ms] hop=3  RECV   OK           N3  <- N8 
+[   949.07 ms]        EVENT               N3  :: received OK from N8; will await COORDINATOR
+[   949.11 ms] hop=3  RECV   OK           N2  <- N9 
+[   949.13 ms]        EVENT               N2  :: received OK from N9; will await COORDINATOR
+[  1015.14 ms] hop=3  SEND   OK           N9  -> N6 
+[  1015.23 ms]        EVENT               N9  :: replies OK to N6 (its ID 6 < mine 9)
+[  1015.27 ms] hop=2  RECV   ELECTION     N9  <- N8 
+[  1015.30 ms] hop=3  SEND   OK           N8  -> N7 
+[  1015.33 ms]        EVENT               N8  :: replies OK to N7 (its ID 7 < mine 8)
+[  1015.45 ms] hop=3  RECV   OK           N6  <- N9 
+[  1015.46 ms]        EVENT               N6  :: received OK from N9; will await COORDINATOR
+[  1016.03 ms] hop=3  RECV   OK           N7  <- N8 
+[  1016.05 ms]        EVENT               N7  :: received OK from N8; will await COORDINATOR
+[  1073.46 ms] hop=3  SEND   OK           N9  -> N8 
+[  1073.55 ms]        EVENT               N9  :: replies OK to N8 (its ID 8 < mine 9)
+[  1073.63 ms] hop=3  RECV   OK           N8  <- N9 
+[  1073.66 ms]        EVENT               N8  :: received OK from N9; will await COORDINATOR
+[  2135.83 ms]        EVENT               N9  :: WINS election; broadcasting COORDINATOR -> [1, 2, 3, 4, 5, 6, 7, 8, 10]
+[  2198.26 ms] hop=3  SEND   COORDINATOR  N9  -> N1  payload=9
+[  2198.41 ms] hop=3  RECV   COORDINATOR  N1  <- N9  payload=9
+[  2198.45 ms]        EVENT               N1  :: acknowledges new leader = N9
+[  2259.94 ms] hop=3  SEND   COORDINATOR  N9  -> N2  payload=9
+[  2260.52 ms] hop=3  RECV   COORDINATOR  N2  <- N9  payload=9
+[  2260.55 ms]        EVENT               N2  :: acknowledges new leader = N9
+[  2324.26 ms] hop=3  SEND   COORDINATOR  N9  -> N3  payload=9
+[  2324.41 ms] hop=3  RECV   COORDINATOR  N3  <- N9  payload=9
+[  2324.44 ms]        EVENT               N3  :: acknowledges new leader = N9
+[  2386.87 ms] hop=3  SEND   COORDINATOR  N9  -> N4  payload=9
+[  2387.05 ms] hop=3  RECV   COORDINATOR  N4  <- N9  payload=9
+[  2387.08 ms]        EVENT               N4  :: acknowledges new leader = N9
+[  2449.59 ms] hop=3  SEND   COORDINATOR  N9  -> N5  payload=9
+[  2449.74 ms] hop=3  RECV   COORDINATOR  N5  <- N9  payload=9
+[  2449.77 ms]        EVENT               N5  :: acknowledges new leader = N9
+[  2512.04 ms] hop=3  SEND   COORDINATOR  N9  -> N6  payload=9
+[  2512.24 ms] hop=3  RECV   COORDINATOR  N6  <- N9  payload=9
+[  2512.27 ms]        EVENT               N6  :: acknowledges new leader = N9
+[  2575.21 ms] hop=3  SEND   COORDINATOR  N9  -> N7  payload=9
+[  2575.38 ms] hop=3  RECV   COORDINATOR  N7  <- N9  payload=9
+[  2575.42 ms]        EVENT               N7  :: acknowledges new leader = N9
+[  2641.03 ms] hop=3  SEND   COORDINATOR  N9  -> N8  payload=9
+[  2641.23 ms] hop=3  RECV   COORDINATOR  N8  <- N9  payload=9
+[  2641.27 ms]        EVENT               N8  :: acknowledges new leader = N9
+[  2708.53 ms] hop=3  SEND   COORDINATOR  N9  -> N10 payload=9

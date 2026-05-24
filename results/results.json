@@ -1,0 +1,42 @@
+[
+  {
+    "algorithm": "Bully",
+    "scenario": "best",
+    "initiator": 9,
+    "failed_node": 10,
+    "messages": 10,
+    "hops": 2,
+    "elapsed_ms": 2083.54,
+    "log": "logs/bully_best.log"
+  },
+  {
+    "algorithm": "Bully",
+    "scenario": "worst",
+    "initiator": 1,
+    "failed_node": 10,
+    "messages": 90,
+    "hops": 3,
+    "elapsed_ms": 2641.23,
+    "log": "logs/bully_worst.log"
+  },
+  {
+    "algorithm": "Ring",
+    "scenario": "best",
+    "initiator": 9,
+    "failed_node": 10,
+    "messages": 18,
+    "hops": 18,
+    "elapsed_ms": 1060.01,
+    "log": "logs/ring_best.log"
+  },
+  {
+    "algorithm": "Ring",
+    "scenario": "worst",
+    "initiator": 1,
+    "failed_node": 10,
+    "messages": 18,
+    "hops": 18,
+    "elapsed_ms": 1071.22,
+    "log": "logs/ring_worst.log"
+  }
+]
